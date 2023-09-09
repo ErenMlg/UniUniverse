@@ -8,6 +8,10 @@ android {
     namespace = "com.softcross.uniuniverse"
     compileSdk = 34
 
+    buildFeatures{
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.softcross.uniuniverse"
         minSdk = 24

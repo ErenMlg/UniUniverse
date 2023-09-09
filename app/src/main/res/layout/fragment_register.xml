@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginFragment">
+    tools:context=".presentation.login.LoginFragment">
 
     <ImageView
         android:layout_width="match_parent"
@@ -20,9 +20,8 @@
             android:id="@+id/guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="240dp"
             android:orientation="horizontal"
-            app:layout_constraintGuide_end="498dp"
+            app:layout_constraintGuide_percent="0.3"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.card.MaterialCardView
@@ -43,7 +42,7 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/shapeableImageView"
+                    android:id="@+id/ivProfile"
                     android:layout_width="55dp"
                     android:layout_height="60dp"
                     android:layout_marginEnd="8dp"
@@ -63,8 +62,8 @@
                     android:id="@+id/edProfilePictureRegister"
                     style="@style/RegisterEditTextStyle"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
+                    android:layout_marginTop="32dp"
                     android:clickable="true"
                     android:ems="10"
                     android:focusable="false"
@@ -72,7 +71,7 @@
                     android:inputType="none"
                     app:layout_constraintBottom_toTopOf="@+id/edFirstNameRegister"
                     app:layout_constraintEnd_toEndOf="@+id/edFirstNameRegister"
-                    app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
+                    app:layout_constraintStart_toEndOf="@+id/ivProfile"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_chainStyle="packed" />
 
@@ -80,7 +79,6 @@
                     android:id="@+id/edFirstNameRegister"
                     style="@style/RegisterEditTextStyle"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_marginStart="48dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="48dp"
@@ -95,7 +93,6 @@
                     android:id="@+id/edLastNameRegister"
                     style="@style/RegisterEditTextStyle"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_marginStart="48dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="48dp"
@@ -110,7 +107,6 @@
                     android:id="@+id/edUniversty"
                     style="@style/RegisterEditTextStyle"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_marginStart="48dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="48dp"
@@ -126,7 +122,6 @@
                     android:id="@+id/edDepartmant"
                     style="@style/RegisterEditTextStyle"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_marginStart="48dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="48dp"
@@ -141,13 +136,15 @@
                 <Button
                     android:id="@+id/btnRegisterRegister"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_marginStart="48dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="48dp"
+                    android:layout_marginBottom="32dp"
                     android:background="@drawable/background_introduction_buttons"
                     android:fontFamily="@font/poppins"
-                    android:padding="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:text="Register"
                     android:textSize="18sp"
                     app:backgroundTint="@null"

@@ -10,7 +10,7 @@ import com.softcross.uniuniverse.R
 import com.softcross.uniuniverse.databinding.LoginProfileItemBinding
 
 
-class ProfilesAdapter(private val usersList: List<String>) :
+class ProfilesAdapter(private val usersList: List<String>, val onItemClick: (Int) -> Unit) :
     RecyclerView.Adapter<ProfilesAdapter.ProfilesCardHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfilesCardHolder =
@@ -22,6 +22,10 @@ class ProfilesAdapter(private val usersList: List<String>) :
 
     override fun onBindViewHolder(holder: ProfilesCardHolder, position: Int) {
         val profileOnTheQueue = usersList[position]
+        holder.itemView.setOnClickListener {
+            it.requestFocus()
+            onItemClick(position)
+        }
         holder.bind(profileOnTheQueue)
     }
 

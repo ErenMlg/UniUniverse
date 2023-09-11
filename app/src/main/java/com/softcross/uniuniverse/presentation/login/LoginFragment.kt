@@ -1,18 +1,25 @@
 package com.softcross.uniuniverse.presentation.login
 
+import android.graphics.Rect
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import android.widget.AdapterView.OnItemClickListener
+import androidx.core.view.size
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearSnapHelper
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
+import androidx.recyclerview.widget.RecyclerView.ItemDecoration
+import androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
+import androidx.recyclerview.widget.RecyclerView.Recycler
+import com.softcross.uniuniverse.CenterZoomLayoutManager
 import com.softcross.uniuniverse.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
 
-    private lateinit var binding:FragmentLoginBinding
+    private lateinit var binding: FragmentLoginBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,11 +32,19 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val tempUserList = ArrayList<String>()
-        tempUserList.add("Eren Mollaoğlu")
-        tempUserList.add("Ceren Molla")
-        tempUserList.add("Gülçin Yaşar")
-        tempUserList.add("Çiğdem Oğurlu")
-        binding.rvProfilesLogin.adapter = ProfilesAdapter(tempUserList)
+        tempUserList.add("User 1")
+        tempUserList.add("User 2")
+        tempUserList.add("User 3")
+        tempUserList.add("User 4")
+        tempUserList.add("User 5")
+        tempUserList.add("User 6")
+        tempUserList.add("User 7")
+        binding.rvProfilesLogin.adapter = ProfilesAdapter(tempUserList, ::onItemClick)
+        binding.rvProfilesLogin.layoutManager =
+            CenterZoomLayoutManager(requireContext(), HORIZONTAL, 3)
+    }
 
+    private fun onItemClick(itemID: Int) {
+        binding.rvProfilesLogin.smoothScrollToPosition(itemID)
     }
 }

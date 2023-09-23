@@ -1,11 +1,9 @@
-package com.softcross.uniuniverse
+package com.softcross.uniuniverse.presentation.login
 
 import android.content.Context
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.get
-import androidx.core.view.marginRight
 import androidx.core.view.updatePaddingRelative
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller

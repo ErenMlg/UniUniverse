@@ -1,20 +1,12 @@
 package com.softcross.uniuniverse.presentation.login
 
-import android.graphics.Rect
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
-import androidx.core.view.size
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearSnapHelper
-import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
-import androidx.recyclerview.widget.RecyclerView.ItemDecoration
-import androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-import androidx.recyclerview.widget.RecyclerView.Recycler
-import com.softcross.uniuniverse.CenterZoomLayoutManager
 import com.softcross.uniuniverse.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {

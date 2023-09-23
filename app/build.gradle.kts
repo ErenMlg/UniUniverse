@@ -1,7 +1,9 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.kotlinAndroid)
+    id ("com.android.application")
+    id ("org.jetbrains.kotlin.android")
+    id ("androidx.navigation.safeargs.kotlin")
+    id ("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -42,11 +44,26 @@ android {
 
 dependencies {
 
-    implementation(libs.core.ktx)
-    implementation(libs.appcompat)
-    implementation(libs.material)
-    implementation(libs.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    implementation  ("androidx.core:core-ktx:1.12.0")
+    implementation  ("androidx.appcompat:appcompat:1.6.1")
+    implementation  ("com.google.android.material:material:1.9.0")
+    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
+    testImplementation  ("junit:junit:4.13.2")
+    androidTestImplementation  ("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation  ("androidx.test.espresso:espresso-core:3.5.1")
+
+    //ViewModel
+    implementation("androidx.lifecycle:lifecycle-view-model-ktx:2.6.2")
+
+    //Room
+    implementation("androidx.room:room-runtime:2.5.2")
+    implementation("androidx.room:room-ktx:2.5.2")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    ksp("androidx.room:room-compiler:2.5.2")
+
+    //Hilt
+    implementation("com.google.dagger:hilt-android:2.44.2")
+    ksp("com.google.dagger:hilt-android-compiler:2.48")
+
+
 }

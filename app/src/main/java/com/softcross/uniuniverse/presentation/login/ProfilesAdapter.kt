@@ -5,12 +5,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.softcross.uniuniverse.R
+import com.softcross.uniuniverse.common.util.navigate
+import com.softcross.uniuniverse.data.model.entities.User
 import com.softcross.uniuniverse.databinding.LoginProfileItemBinding
 
 
-class ProfilesAdapter(private val usersList: List<String>, val onItemClick: (Int) -> Unit) :
+class ProfilesAdapter(private val usersList: List<User>, val onItemClick: (Int) -> Unit) :
     RecyclerView.Adapter<ProfilesAdapter.ProfilesCardHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfilesCardHolder =
@@ -31,8 +34,15 @@ class ProfilesAdapter(private val usersList: List<String>, val onItemClick: (Int
 
     inner class ProfilesCardHolder(private val binding: LoginProfileItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(user: String) = with(binding) {
-            tvUserName.text = user
+        fun bind(user: User) = with(binding) {
+            if (user.userID == 1) {
+                root.setOnClickListener { Navigation.navigate(it, R.id.NavLoginToRegister) }
+            }else{
+
+            }
+            val userFullName = user.userName + " " + user.userSurname
+            tvUserName.text = userFullName
+            ivProfile.setImageBitmap(user.userPhoto)
         }
     }
 }

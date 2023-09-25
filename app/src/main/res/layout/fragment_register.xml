@@ -67,7 +67,7 @@
                     android:clickable="true"
                     android:ems="10"
                     android:focusable="false"
-                    android:hint="Profile Picture"
+                    android:hint="@string/strProfilePic"
                     android:inputType="none"
                     app:layout_constraintBottom_toTopOf="@+id/edFirstNameRegister"
                     app:layout_constraintEnd_toEndOf="@+id/edFirstNameRegister"
@@ -82,7 +82,7 @@
                     android:layout_marginStart="48dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="48dp"
-                    android:hint="First Name"
+                    android:hint="@string/strFirstName"
                     android:inputType="text"
                     app:layout_constraintBottom_toTopOf="@+id/edLastNameRegister"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -96,42 +96,12 @@
                     android:layout_marginStart="48dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="48dp"
-                    android:hint="Last Name"
-                    android:inputType="text"
-                    app:layout_constraintBottom_toTopOf="@+id/edUniversty"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edFirstNameRegister" />
-
-                <EditText
-                    android:id="@+id/edUniversty"
-                    style="@style/RegisterEditTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_marginStart="48dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="48dp"
-                    android:ems="10"
-                    android:hint="Universty"
-                    android:inputType="text"
-                    app:layout_constraintBottom_toTopOf="@+id/edDepartmant"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edLastNameRegister" />
-
-                <EditText
-                    android:id="@+id/edDepartmant"
-                    style="@style/RegisterEditTextStyle"
-                    android:layout_width="0dp"
-                    android:layout_marginStart="48dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="48dp"
-                    android:ems="10"
-                    android:hint="Departmant"
+                    android:hint="@string/strLastName"
                     android:inputType="text"
                     app:layout_constraintBottom_toTopOf="@+id/btnRegisterRegister"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edUniversty" />
+                    app:layout_constraintTop_toBottomOf="@+id/edFirstNameRegister" />
 
                 <Button
                     android:id="@+id/btnRegisterRegister"
@@ -143,15 +113,13 @@
                     android:layout_marginBottom="32dp"
                     android:background="@drawable/background_introduction_buttons"
                     android:fontFamily="@font/poppins"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:text="Register"
+                    android:text="@string/strRegister"
                     android:textSize="18sp"
                     app:backgroundTint="@null"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edDepartmant" />
+                    app:layout_constraintTop_toBottomOf="@+id/edLastNameRegister" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -190,7 +158,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
-            android:text="Let's Register"
+            android:text="@string/strLetsRegister"
             android:textColor="@color/white"
             android:textSize="36sp"
             app:layout_constraintBottom_toTopOf="@+id/cvInputsRegister"
@@ -199,12 +167,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvRegistertoLogin"
+            android:id="@+id/tvRegisterToLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-5dp"
             android:fontFamily="@font/poppins_extralight"
-            android:text="Do you have account? Login "
+            android:text="@string/strDoYouHaveAcc"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/tvRegisterRegister"

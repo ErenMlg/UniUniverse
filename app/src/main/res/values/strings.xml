@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">UniUniverse</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="strUserName">Username</string>
+    <string name="strFirstName">First Name</string>
+    <string name="strLastName">Last Name</string>
+    <string name="strProfilePic">Profile Picture</string>
+    <string name="strLogin">Login</string>
+    <string name="strRegister">Register</string>
+    <string name="strDoYouHaveAcc">Do you have account? Login</string>
+    <string name="strLetsRegister">Let\'s Register</string>
+    <string name="strLetsLogin">Let\'s Login</string>
+    <string name="strDontHaveAcc">Dont have an account? Register</string>
 </resources>

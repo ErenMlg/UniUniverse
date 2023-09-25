@@ -6,12 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
+import com.softcross.uniuniverse.R
+import com.softcross.uniuniverse.common.util.navigate
 import com.softcross.uniuniverse.databinding.FragmentLoginBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
+    private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,17 +30,21 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val tempUserList = ArrayList<String>()
-        tempUserList.add("User 1")
-        tempUserList.add("User 2")
-        tempUserList.add("User 3")
-        tempUserList.add("User 4")
-        tempUserList.add("User 5")
-        tempUserList.add("User 6")
-        tempUserList.add("User 7")
-        binding.rvProfilesLogin.adapter = ProfilesAdapter(tempUserList, ::onItemClick)
-        binding.rvProfilesLogin.layoutManager =
-            CenterZoomLayoutManager(requireContext(), HORIZONTAL, 3)
+
+        viewModel.getAllUser().observe(viewLifecycleOwner) {
+            binding.rvProfilesLogin.adapter = ProfilesAdapter(it, ::onItemClick)
+            binding.rvProfilesLogin.layoutManager =
+                CenterZoomLayoutManager(requireContext(), HORIZONTAL, 3)
+        }
+
+        binding.apply {
+            tvLoginToRegister.setOnClickListener {
+                Navigation.navigate(it, R.id.NavLoginToRegister)
+            }
+
+
+        }
+
     }
 
     private fun onItemClick(itemID: Int) {

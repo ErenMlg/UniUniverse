@@ -1,136 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:context=".presentation.login.LoginFragment">
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$Behavior">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/introduction_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/IconsGuideRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="32dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/IconsGuideLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="32dp" />
+
+        <ImageView
+            android:id="@+id/ivAppLogoRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="5dp"
+            android:src="@drawable/app_logo"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAppNameRegister"
+            app:layout_constraintEnd_toStartOf="@+id/tvAppNameRegister"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvAppNameRegister"
+            app:shapeAppearanceOverlay="@style/circleImageView"
+            app:srcCompat="@drawable/app_logo" />
+
+        <TextView
+            android:id="@+id/tvAppNameRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/poppins_light"
+            android:text="UniUniverse"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/tvRegisterRegister"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivAppLogoRegister" />
+
+        <TextView
+            android:id="@+id/tvRegisterRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="@string/strLetsRegister"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toTopOf="@+id/cardGuide"
+            app:layout_constraintEnd_toStartOf="@+id/IconsGuideLeft"
+            app:layout_constraintStart_toStartOf="@+id/IconsGuideRight"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvRegisterToLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-5dp"
+            android:fontFamily="@font/poppins_extralight"
+            android:text="@string/strDoYouHaveAcc"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/tvRegisterRegister"
+            app:layout_constraintStart_toStartOf="@+id/tvRegisterRegister"
+            app:layout_constraintTop_toBottomOf="@+id/tvRegisterRegister" />
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/icon_back"
+            app:layout_constraintStart_toStartOf="@+id/IconsGuideRight"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/cardGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="240dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="230dp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvInputsRegister"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="-10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cardGuide">
+
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
-                android:src="@drawable/introduction_background"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/IconsGuideRight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="32dp" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/IconsGuideLeft"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_end="32dp" />
-
-            <ImageView
-                android:id="@+id/ivAppLogoRegister"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:padding="5dp"
-                android:src="@drawable/app_logo"
-                app:layout_constraintBottom_toBottomOf="@+id/tvAppNameRegister"
-                app:layout_constraintEnd_toStartOf="@+id/tvAppNameRegister"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tvAppNameRegister"
-                app:shapeAppearanceOverlay="@style/circleImageView"
-                app:srcCompat="@drawable/app_logo" />
-
-            <TextView
-                android:id="@+id/tvAppNameRegister"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/poppins_light"
-                android:text="UniUniverse"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/tvRegisterRegister"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/ivAppLogoRegister" />
-
-            <TextView
-                android:id="@+id/tvRegisterRegister"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:text="@string/strLetsRegister"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="36sp"
-                app:layout_constraintBottom_toTopOf="@+id/cardGuide"
-                app:layout_constraintEnd_toStartOf="@+id/IconsGuideLeft"
-                app:layout_constraintStart_toStartOf="@+id/IconsGuideRight"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvRegisterToLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-5dp"
-                android:fontFamily="@font/poppins_extralight"
-                android:text="@string/strDoYouHaveAcc"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/tvRegisterRegister"
-                app:layout_constraintStart_toStartOf="@+id/tvRegisterRegister"
-                app:layout_constraintTop_toBottomOf="@+id/tvRegisterRegister" />
-
-            <ImageView
-                android:id="@+id/ivBack"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/icon_back"
-                app:layout_constraintStart_toStartOf="@+id/IconsGuideRight"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/cardGuide"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="240dp"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_begin="230dp"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cvInputsRegister"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginBottom="-10dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/cardGuide">
-
+                android:layout_gravity="center">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/ivProfile"
@@ -213,11 +212,9 @@
                         app:layout_constraintTop_toBottomOf="@+id/edLastNameRegister" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.card.MaterialCardView>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+        </com.google.android.material.card.MaterialCardView>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
-
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>

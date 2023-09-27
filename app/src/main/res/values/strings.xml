@@ -11,4 +11,5 @@
     <string name="strLetsRegister">Let\'s Register</string>
     <string name="strLetsLogin">Let\'s Login</string>
     <string name="strDontHaveAcc">Dont have an account? Register</string>
+    <string name="strSelectProfile">Please select a profile to login</string>
 </resources>

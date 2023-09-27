@@ -17,63 +17,18 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
+            android:id="@+id/IconsGuideRight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="240dp"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="230dp"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="32dp" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cvInputsLogin"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="-10dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvProfilesLogin"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:clipToPadding="false"
-                    app:layout_constraintBottom_toTopOf="@+id/btnLoginLogin"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_chainStyle="packed" />
-
-                <Button
-                    android:id="@+id/btnLoginLogin"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
-                    android:layout_marginEnd="48dp"
-                    android:background="@drawable/background_introduction_buttons"
-                    android:fontFamily="@font/poppins"
-                    android:padding="15dp"
-                    android:text="@string/strLogin"
-                    android:textSize="18sp"
-                    app:backgroundTint="@null"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rvProfilesLogin" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/IconsGuideLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="32dp" />
 
         <ImageView
             android:id="@+id/ivAppLogoLogin"
@@ -113,8 +68,8 @@
             android:textColor="@color/white"
             android:textSize="36sp"
             app:layout_constraintBottom_toTopOf="@+id/cvInputsLogin"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/IconsGuideLeft"
+            app:layout_constraintStart_toStartOf="@+id/IconsGuideRight"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -129,6 +84,61 @@
             app:layout_constraintEnd_toEndOf="@+id/tvLoginLogin"
             app:layout_constraintStart_toStartOf="@+id/tvLoginLogin"
             app:layout_constraintTop_toBottomOf="@+id/tvLoginLogin" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/cardGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="240dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="230dp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvInputsLogin"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="-10dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cardGuide">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:id="@+id/tvSelectProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_light"
+                    android:text="@string/strSelectProfile"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@+id/rvProfilesLogin"
+                    app:layout_constraintEnd_toEndOf="@+id/rvProfilesLogin"
+                    app:layout_constraintStart_toStartOf="@+id/rvProfilesLogin"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvProfilesLogin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSelectProfile"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

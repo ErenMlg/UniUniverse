@@ -19,16 +19,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/circleImageView"
-        app:srcCompat="@drawable/icon_profile" />
+        app:srcCompat="@drawable/icon_profile"
+        app:strokeColor="#9B61D8"
+        app:strokeWidth="0dp" />
 
     <TextView
         android:id="@+id/tvUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/poppins"
+        android:fontFamily="@font/poppins_light"
         android:text="@string/strUserName"
-        android:textColor="#000000"
+        android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/ivProfile"
         app:layout_constraintStart_toStartOf="@+id/ivProfile"

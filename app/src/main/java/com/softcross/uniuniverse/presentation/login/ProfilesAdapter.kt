@@ -35,10 +35,11 @@ class ProfilesAdapter(private val usersList: List<User>, val onItemClick: (Int) 
     inner class ProfilesCardHolder(private val binding: LoginProfileItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(user: User) = with(binding) {
-            if (user.userID == 1) {
-                root.setOnClickListener { Navigation.navigate(it, R.id.NavLoginToRegister) }
-            }else{
-
+            root.setOnClickListener {
+                ivProfile.strokeWidth = 5f
+                if (user.userID == 1) {
+                    Navigation.navigate(it, R.id.NavLoginToRegister)
+                }
             }
             val userFullName = user.userName + " " + user.userSurname
             tvUserName.text = userFullName

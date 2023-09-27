@@ -13,6 +13,7 @@ import com.softcross.uniuniverse.R
 import com.softcross.uniuniverse.common.util.navigate
 import com.softcross.uniuniverse.databinding.FragmentLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.system.exitProcess
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
@@ -41,10 +42,7 @@ class LoginFragment : Fragment() {
             tvLoginToRegister.setOnClickListener {
                 Navigation.navigate(it, R.id.NavLoginToRegister)
             }
-
-
         }
-
     }
 
     private fun onItemClick(itemID: Int) {

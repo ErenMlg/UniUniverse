@@ -12,9 +12,15 @@ class Converters {
     fun fromBitmap(bitmap: Bitmap): ByteArray {
         val outputStream = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream)
-        Log.e("Bitmap size",outputStream.toByteArray().size.toString())
+        Log.e("Bitmap size", outputStream.toByteArray().size.toString())
         return compressImage(outputStream.toByteArray())
     }
+
+    @TypeConverter
+    fun toBitmap(byteArray: ByteArray): Bitmap {
+        return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
+    }
+
 
     private fun compressImage(imageToCompress: ByteArray): ByteArray {
         var compressImage = imageToCompress
@@ -30,13 +36,8 @@ class Converters {
             resized.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
             compressImage = outputStream.toByteArray()
         }
-        Log.e("Compress image size",compressImage.size.toString())
+        Log.e("Compress image size", compressImage.size.toString())
         return compressImage
-    }
-
-    @TypeConverter
-    fun toBitmap(byteArray: ByteArray): Bitmap {
-        return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
     }
 
 }

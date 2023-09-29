@@ -1,10 +1,7 @@
-package com.softcross.uniuniverse.presentation.login
+package com.softcross.uniuniverse.ui.login
 
-import android.animation.ObjectAnimator
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.softcross.uniuniverse.R

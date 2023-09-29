@@ -1,4 +1,4 @@
-package com.softcross.uniuniverse.presentation.register
+package com.softcross.uniuniverse.ui.register
 
 import android.app.Activity
 import android.content.Intent
@@ -13,6 +13,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.softcross.uniuniverse.R
 import com.softcross.uniuniverse.common.util.navigate
@@ -22,6 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
+    private val viewModel: RegisterViewModel by viewModels()
     private lateinit var binding: FragmentRegisterBinding
     private var pickedPhoto: Uri? = null
     private var pickedBitMap: Bitmap? = null
@@ -38,9 +40,9 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-/*            ivBack.setOnClickListener {
+            ivBack.setOnClickListener {
                 Navigation.navigate(it, R.id.NavRegisterToLogin)
-            }*/
+            }
             edProfilePictureRegister.setOnClickListener {
                 selectPhoto()
             }

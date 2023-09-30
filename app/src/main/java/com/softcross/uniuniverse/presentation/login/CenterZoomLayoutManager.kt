@@ -1,4 +1,4 @@
-package com.softcross.uniuniverse.ui.login
+package com.softcross.uniuniverse.presentation.login
 
 import android.content.Context
 import android.util.Log

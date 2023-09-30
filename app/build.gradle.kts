@@ -56,7 +56,7 @@ dependencies {
     //Room
     implementation("androidx.room:room-runtime:2.5.2")
     implementation("androidx.room:room-ktx:2.5.2")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    annotationProcessor("androidx.room:room-compiler:2.5.2")
     kapt("androidx.room:room-compiler:2.5.2")
 
     //Hilt
@@ -68,6 +68,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.3")
 
     // Lifecycle - ViewModel
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.fragment:fragment-ktx:1.6.1")
     implementation("androidx.activity:activity-ktx:1.7.2")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")

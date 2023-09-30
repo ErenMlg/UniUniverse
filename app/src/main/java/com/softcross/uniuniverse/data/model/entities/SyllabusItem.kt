@@ -21,7 +21,7 @@ import androidx.room.PrimaryKey
     ]
 )
 data class SyllabusItem(
-    @PrimaryKey(true) @ColumnInfo(name = "itemID") val itemID: Int,
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "itemID") val itemID: Int,
     @ColumnInfo(name = "itemName") val itemName: String,
     @ColumnInfo(name = "itemStartHour") val itemStartHour: String,
     @ColumnInfo(name = "itemEndHour") val itemEndHour: String,

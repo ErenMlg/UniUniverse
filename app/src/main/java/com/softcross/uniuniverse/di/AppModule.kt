@@ -17,5 +17,4 @@ class AppModule {
     @Singleton
     fun provideUserWorksDao(@ApplicationContext context: Context) =
         DatabaseObject.getInstance(context).getUserWorksDao()
-
 }

@@ -21,6 +21,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.softcross.uniuniverse.R
+import com.softcross.uniuniverse.common.util.launchAndCollectIn
 import com.softcross.uniuniverse.common.util.navigate
 import com.softcross.uniuniverse.databinding.FragmentRegisterBinding
 import com.softcross.uniuniverse.presentation.register.RegisterViewModel.RegisterState
@@ -44,22 +45,34 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        /*viewModel.state.observe(viewLifecycleOwner) { state ->
+        viewModel.state.launchAndCollectIn(viewLifecycleOwner) { state ->
             when (state) {
                 is RegisterState.Success -> {
-
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.strUserAddSuccess),
+                        Toast.LENGTH_LONG
+                    )
+                        .show()
+                    Navigation.navigate(binding.ivBack, R.id.NavRegisterToLogin)
                 }
+
                 is RegisterState.Failed -> {
-
+                    Toast.makeText(requireContext(), state.errorMessage, Toast.LENGTH_LONG)
+                        .show()
                 }
+
                 is RegisterState.Controlling -> {
-
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.strLoading),
+                        Toast.LENGTH_LONG
+                    )
+                        .show()
                 }
-               }
-            */
-
-        binding.apply{
+            }
+        }
+        binding.apply {
             ivBack.setOnClickListener {
                 Navigation.navigate(it, R.id.NavRegisterToLogin)
             }
@@ -76,10 +89,10 @@ class RegisterFragment : Fragment() {
                 } else {
                     MaterialAlertDialogBuilder(requireContext())
                         .apply {
-                            setMessage("Kullanıcı fotoğrafı eklemeden devam etmek istediğinize emin misiniz?\nEğer isterseniz daha sonra profil kısmından ekleyebilirsiniz")
-                            setTitle("Kullanıcı fotoğrafı eklenmedi")
+                            setMessage(getString(R.string.strContinueWithoutPic))
+                            setTitle(getString(R.string.strNotAddedPic))
                             setIcon(R.drawable.icon_question)
-                            setPositiveButton("Evet") { _, _ ->
+                            setPositiveButton(getString(R.string.strYes)) { _, _ ->
                                 viewModel.checkInputs(
                                     edFirstNameRegister.text.trim().toString(),
                                     edLastNameRegister.text.trim().toString(),
@@ -89,11 +102,11 @@ class RegisterFragment : Fragment() {
                                     )
                                 )
                             }
-                            setNegativeButton("Hayır") { dialogInterface, i ->
+                            setNegativeButton(getString(R.string.strNo)) { dialogInterface, i ->
                                 dialogInterface.dismiss()
                                 Toast.makeText(
                                     requireContext(),
-                                    "Kullanıcı Fotoğrafı Ekleyiniz...",
+                                    getString(R.string.strPleaseAddPic),
                                     Toast.LENGTH_LONG
                                 ).show()
                             }
@@ -113,7 +126,10 @@ class RegisterFragment : Fragment() {
             if (pickedPhoto != null) {
                 if (Build.VERSION.SDK_INT >= 28) {
                     val source =
-                        ImageDecoder.createSource(requireContext().contentResolver, pickedPhoto!!)
+                        ImageDecoder.createSource(
+                            requireContext().contentResolver,
+                            pickedPhoto!!
+                        )
                     pickedBitMap = resizePhoto(ImageDecoder.decodeBitmap(source))
                     binding.ivProfile.scaleType = ImageView.ScaleType.CENTER_CROP
                     binding.ivProfile.setImageBitmap(pickedBitMap!!)

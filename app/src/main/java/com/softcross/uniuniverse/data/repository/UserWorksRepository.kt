@@ -12,7 +12,7 @@ class UserWorksRepository @Inject constructor(private var dao: UserWorksDao) {
 
     fun getAllUser(): LiveData<List<User>> = dao.getAllUsers()
 
-    fun addUser(user: User) = CoroutineScope(Dispatchers.IO).launch{
+    suspend fun addUser(user: User) {
         dao.addUser(user)
     }
 

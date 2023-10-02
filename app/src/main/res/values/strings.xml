@@ -10,6 +10,18 @@
     <string name="strDoYouHaveAcc">Do you have account? Login</string>
     <string name="strLetsRegister">Let\'s Register</string>
     <string name="strLetsLogin">Let\'s Login</string>
-    <string name="strDontHaveAcc">Dont have an account? Register</string>
+    <string name="strDontHaveAcc">Don\'t have an account? Register</string>
     <string name="strSelectProfile">Please select a profile to login</string>
+    <string name="strSaved">User saved!</string>
+    <string name="strLoading">Loading</string>
+    <string name="strContinueWithoutPic">Are you sure you want to continue without adding user picture?\nIf you want you can add photo from user accounts side later </string>
+    <string name="strNotAddedPic">User photo not found</string>
+    <string name="strPleaseAddPic">Please add a user photo</string>
+    <string name="strPleaseFillBlanks">Please fill the blanks</string>
+    <string name="strUserAddSuccess">Successfully added a user</string>
+    <string name="strUserAddFailed">Failed add user</string>
+    <string name="strYes">Yes</string>
+    <string name="strNo">No</string>
+
+
 </resources>

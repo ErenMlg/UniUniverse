@@ -36,10 +36,7 @@ class CenterZoomLayoutManager(context: Context, orientation: Int, private val it
         // after determining first and/or last items size use it to alter host padding
         when (orientation) {
             RecyclerView.HORIZONTAL -> {
-                Log.e("width:", width.toString())
-                Log.e("Measuredwidth:", child.measuredWidth.toString())
                 val hPadding = ((width - child.measuredWidth) / 2).coerceAtLeast(0)
-                Log.e("padding:", hPadding.toString())
 
                 if (!reverseLayout) {
                     if (lp == 0) recyclerView.updatePaddingRelative(start = hPadding)
@@ -79,7 +76,6 @@ class CenterZoomLayoutManager(context: Context, orientation: Int, private val it
             recyclerView
         )
         centerSmoothScroller.targetPosition = position
-        Log.e("Position:", position.toString())
         startSmoothScroll(centerSmoothScroller)
     }
 
@@ -92,15 +88,6 @@ class CenterZoomLayoutManager(context: Context, orientation: Int, private val it
             boxEnd: Int,
             snapPreference: Int
         ): Int {
-            Log.e("padding s e",view.paddingStart.toString()+","+view.paddingEnd.toString())
-            Log.e("boxStart:", boxStart.toString())
-            Log.e("boxEnd:", (boxEnd - view.paddingStart).toString())
-            Log.e("viewStart:", viewStart.toString())
-            Log.e("viewEnd:", viewEnd.toString())
-            Log.e(
-                "calculated:",
-                ((boxStart + (boxEnd - boxStart - view.paddingStart) / 2) - (viewStart + (viewEnd - viewStart) / 2)).toString()
-            )
             return ((boxStart + (boxEnd - boxStart - view.paddingStart) / 2) - (viewStart + (viewEnd - viewStart - view.paddingEnd) / 2))
         }
     }

@@ -1,5 +1,8 @@
 package com.softcross.uniuniverse.domain.usecase
 
+import android.content.res.Resources
+import android.media.Ringtone
+import com.softcross.uniuniverse.R
 import com.softcross.uniuniverse.domain.model.ValidationResult
 
 class ValidateStrings {
@@ -8,7 +11,7 @@ class ValidateStrings {
         if (generalName.isEmpty()) {
             return ValidationResult(
                 successful = false,
-                errorMessage = "Lütfen boş bırakmayınız!"
+                errorMessage = Resources.getSystem().getString(R.string.strPleaseFillBlanks)
             )
         }
         return ValidationResult(

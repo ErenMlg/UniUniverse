@@ -141,8 +141,7 @@
                     app:layout_constraintStart_toStartOf="@+id/edFirstNameRegister"
                     app:layout_constraintTop_toTopOf="@+id/edProfilePictureRegister"
                     app:shapeAppearanceOverlay="@style/circleImageView"
-                    app:srcCompat="@drawable/icon_profile"
-                    app:tint="@color/gray" />
+                    app:srcCompat="@drawable/icon_profile" />
 
                 <EditText
                     android:id="@+id/edProfilePictureRegister"

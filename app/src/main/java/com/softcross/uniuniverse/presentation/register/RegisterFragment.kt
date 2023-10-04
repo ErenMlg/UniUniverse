@@ -14,13 +14,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.softcross.uniuniverse.R
+import com.softcross.uniuniverse.common.util.createCustomToast
 import com.softcross.uniuniverse.common.util.launchAndCollectIn
 import com.softcross.uniuniverse.common.util.navigate
 import com.softcross.uniuniverse.databinding.FragmentRegisterBinding
@@ -39,6 +42,7 @@ class RegisterFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         binding = FragmentRegisterBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -48,27 +52,16 @@ class RegisterFragment : Fragment() {
         viewModel.state.launchAndCollectIn(viewLifecycleOwner) { state ->
             when (state) {
                 is RegisterState.Success -> {
-                    Toast.makeText(
-                        requireContext(),
-                        getString(R.string.strUserAddSuccess),
-                        Toast.LENGTH_LONG
-                    )
-                        .show()
+                    requireContext().createCustomToast(getString(R.string.strUserAddSuccess))
                     Navigation.navigate(binding.ivBack, R.id.NavRegisterToLogin)
                 }
 
                 is RegisterState.Failed -> {
-                    Toast.makeText(requireContext(), state.errorMessage, Toast.LENGTH_LONG)
-                        .show()
+                    requireContext().createCustomToast(state.errorMessage)
                 }
 
                 is RegisterState.Controlling -> {
-                    Toast.makeText(
-                        requireContext(),
-                        getString(R.string.strLoading),
-                        Toast.LENGTH_LONG
-                    )
-                        .show()
+                    requireContext().createCustomToast(getString(R.string.strLoading))
                 }
             }
         }
@@ -87,11 +80,13 @@ class RegisterFragment : Fragment() {
                         pickedBitMap!!
                     )
                 } else {
-                    MaterialAlertDialogBuilder(requireContext())
+                    MaterialAlertDialogBuilder(requireContext(),R.style.CustomMaterialAlertDialog)
                         .apply {
                             setMessage(getString(R.string.strContinueWithoutPic))
                             setTitle(getString(R.string.strNotAddedPic))
                             setIcon(R.drawable.icon_question)
+                            setCancelable(false)
+
                             setPositiveButton(getString(R.string.strYes)) { _, _ ->
                                 viewModel.checkInputs(
                                     edFirstNameRegister.text.trim().toString(),
@@ -104,11 +99,7 @@ class RegisterFragment : Fragment() {
                             }
                             setNegativeButton(getString(R.string.strNo)) { dialogInterface, i ->
                                 dialogInterface.dismiss()
-                                Toast.makeText(
-                                    requireContext(),
-                                    getString(R.string.strPleaseAddPic),
-                                    Toast.LENGTH_LONG
-                                ).show()
+                                requireContext().createCustomToast(getString(R.string.strPleaseAddPic))
                             }
                             create().show()
                         }
@@ -132,6 +123,7 @@ class RegisterFragment : Fragment() {
                         )
                     pickedBitMap = resizePhoto(ImageDecoder.decodeBitmap(source))
                     binding.ivProfile.scaleType = ImageView.ScaleType.CENTER_CROP
+                    binding.ivProfile.setColorFilter(requireContext().getColor(com.google.android.material.R.color.mtrl_btn_transparent_bg_color))
                     binding.ivProfile.setImageBitmap(pickedBitMap!!)
                 } else {
                     pickedBitMap = resizePhoto(
@@ -141,6 +133,7 @@ class RegisterFragment : Fragment() {
                         )
                     )
                     binding.ivProfile.scaleType = ImageView.ScaleType.CENTER_CROP
+                    binding.ivProfile.setColorFilter(requireContext().getColor(com.google.android.material.R.color.mtrl_btn_transparent_bg_color))
                     binding.ivProfile.setImageBitmap(pickedBitMap!!)
                 }
             }

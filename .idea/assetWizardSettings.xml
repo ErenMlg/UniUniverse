@@ -34,8 +34,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="icon_question" />
-                            <entry key="sourceFile" value="D:\Software\Uygulamalarim\UniUniverse\Assets\icon_question.svg" />
+                            <entry key="outputName" value="profile" />
+                            <entry key="sourceFile" value="D:\Software\Uygulamalarim\UniUniverse\Assets\profile.svg" />
                           </map>
                         </option>
                       </PersistentState>

@@ -13,7 +13,7 @@
         android:background="@drawable/gradient_background"
         android:elevation="4dp"
         android:padding="5dp"
-        android:scaleType="centerInside"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

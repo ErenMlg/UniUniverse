@@ -7,15 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.softcross.uniuniverse.R
 import com.softcross.uniuniverse.common.util.navigate
 import com.softcross.uniuniverse.data.model.entities.User
-import com.softcross.uniuniverse.databinding.LoginProfileItemBinding
-
+import com.softcross.uniuniverse.databinding.ItemLoginProfileBinding
 
 class ProfilesAdapter(private val usersList: List<User>, val onItemClick: (Int) -> Unit) :
     RecyclerView.Adapter<ProfilesAdapter.ProfilesCardHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfilesCardHolder =
         ProfilesCardHolder(
-            LoginProfileItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemLoginProfileBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
 
     override fun getItemCount(): Int = usersList.size
@@ -29,11 +28,10 @@ class ProfilesAdapter(private val usersList: List<User>, val onItemClick: (Int) 
         holder.bind(profileOnTheQueue)
     }
 
-    inner class ProfilesCardHolder(private val binding: LoginProfileItemBinding) :
+    inner class ProfilesCardHolder(private val binding: ItemLoginProfileBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(user: User) = with(binding) {
             root.setOnClickListener {
-                ivProfile.strokeWidth = 5f
                 if (user.userID == 1) {
                     Navigation.navigate(it, R.id.NavLoginToRegister)
                 }

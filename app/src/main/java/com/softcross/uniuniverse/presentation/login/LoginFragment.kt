@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
@@ -24,6 +25,7 @@ class LoginFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
         binding = FragmentLoginBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -33,7 +35,7 @@ class LoginFragment : Fragment() {
 
         viewModel.getAllUser().observe(viewLifecycleOwner) {
             binding.rvProfilesLogin.adapter =
-                ProfilesAdapter(it, ::onItemClick)
+                ProfilesAdapter(it.reversed(), ::onItemClick)
             binding.rvProfilesLogin.layoutManager =
                 CenterZoomLayoutManager(requireContext(), HORIZONTAL, 3)
         }

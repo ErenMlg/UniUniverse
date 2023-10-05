@@ -31,37 +31,49 @@
     <style name="CustomMaterialAlertDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
         <!-- Background Color-->
         <!-- Text Color for title and message-->
-        <item name="fontFamily">@font/poppins</item>
-        <item name="android:backgroundDimEnabled">false</item>
-        <item name="android:backgroundDimAmount">0.90</item>
+        <item name="fontFamily">@font/poppins_medium</item>
         <item name="colorOnSurface">@color/white</item>
-        <item name="colorOnSurfaceVariant">@color/white</item>
-        <item name="materialAlertDialogTitleIconStyle">@style/Icon_Tint</item>
+        <item name="materialAlertDialogTitleIconStyle">@style/AlertDialogIconStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/AlertDialogBodyTextStyle</item>
         <!-- Style for positive button -->
-        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/ButtonStyle</item>
         <!-- Style for negative button -->
-        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/ButtonStyle</item>
+        <item name="buttonBarNeutralButtonStyle">@style/ButtonStyle</item>
+        <item name="buttonBarStyle">@style/ButtonBarStyle</item>
+        <item name="materialAlertDialogButtonSpacerVisibility">2</item>
     </style>
 
-    <style name="Icon_Tint" parent="@style/MaterialAlertDialog.MaterialComponents.Title.Icon">
+    <style name="AlertDialogIconStyle" parent="@style/MaterialAlertDialog.MaterialComponents.Title.Icon">
         <item name="android:tint">@color/white</item>
+        <item name="android:layout_width">25dp</item>
+        <item name="android:layout_height">25dp</item>
     </style>
 
-    <style name="PositiveButtonStyle">
+    <style name="AlertDialogBodyTextStyle">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textColor">@color/gray_white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/poppins_light</item>
+    </style>
+
+    <style name="ButtonStyle">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="maxWidth">@null</item>
         <item name="android:textColor">@color/white</item>
         <item name="backgroundTint">@color/transparent</item>
         <item name="strokeWidth">1dp</item>
         <item name="strokeColor">@color/white</item>
-        <item name="android:width">150dp</item>
-        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
     </style>
 
-    <style name="NegativeButtonStyle">
-        <item name="android:textColor">@color/white</item>
-        <item name="backgroundTint">@color/transparent</item>
-        <item name="strokeWidth">1dp</item>
-        <item name="strokeColor">@color/white</item>
-        <item name="android:width">150dp</item>
+    <style name="ButtonBarStyle">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
     </style>
 
 </resources>

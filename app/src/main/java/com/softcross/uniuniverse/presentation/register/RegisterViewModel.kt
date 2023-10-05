@@ -22,10 +22,9 @@ import kotlinx.coroutines.launch
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
-    private var repo: UserWorksRepository,
+    private val repo: UserWorksRepository,
+    private val validateStrings: ValidateStrings
 ) : ViewModel() {
-
-    private val validateString: ValidateStrings = ValidateStrings()
 
     private var _state = Channel<RegisterState>()
     val state: Flow<RegisterState>
@@ -34,8 +33,8 @@ class RegisterViewModel @Inject constructor(
     fun checkInputs(firstName: String, lastName: String, userPhoto: Bitmap) =
         viewModelScope.launch(Dispatchers.IO) {
             _state.send(RegisterState.Controlling)
-            val firstNameResult = validateString.execute(firstName)
-            val lastNameResult = validateString.execute(lastName)
+            val firstNameResult = validateStrings.execute(firstName)
+            val lastNameResult = validateStrings.execute(lastName)
             if (firstNameResult.errorMessage != null) {
                 _state.send(RegisterState.Failed(errorMessage = firstNameResult.errorMessage))
             } else if (lastNameResult.errorMessage != null) {
@@ -47,8 +46,8 @@ class RegisterViewModel @Inject constructor(
         }
 
     sealed class RegisterState {
-        object Controlling : RegisterState()
-        object Success : RegisterState()
+        data object Controlling : RegisterState()
+        data object Success : RegisterState()
         data class Failed(val errorMessage: String) : RegisterState()
     }
 }

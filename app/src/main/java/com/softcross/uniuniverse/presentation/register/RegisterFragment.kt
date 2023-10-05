@@ -1,6 +1,7 @@
 package com.softcross.uniuniverse.presentation.register
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -10,6 +11,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,10 +24,13 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.dialog.MaterialDialogs
 import com.softcross.uniuniverse.R
 import com.softcross.uniuniverse.common.util.createCustomToast
+import com.softcross.uniuniverse.common.util.gone
 import com.softcross.uniuniverse.common.util.launchAndCollectIn
 import com.softcross.uniuniverse.common.util.navigate
+import com.softcross.uniuniverse.common.util.visible
 import com.softcross.uniuniverse.databinding.FragmentRegisterBinding
 import com.softcross.uniuniverse.presentation.register.RegisterViewModel.RegisterState
 import dagger.hilt.android.AndroidEntryPoint
@@ -52,6 +57,7 @@ class RegisterFragment : Fragment() {
         viewModel.state.launchAndCollectIn(viewLifecycleOwner) { state ->
             when (state) {
                 is RegisterState.Success -> {
+                    //binding.lottieAnimation.gone()
                     requireContext().createCustomToast(getString(R.string.strUserAddSuccess))
                     Navigation.navigate(binding.ivBack, R.id.NavRegisterToLogin)
                 }
@@ -61,7 +67,7 @@ class RegisterFragment : Fragment() {
                 }
 
                 is RegisterState.Controlling -> {
-                    requireContext().createCustomToast(getString(R.string.strLoading))
+                    //binding.lottieAnimation.visible()
                 }
             }
         }
@@ -80,13 +86,12 @@ class RegisterFragment : Fragment() {
                         pickedBitMap!!
                     )
                 } else {
-                    MaterialAlertDialogBuilder(requireContext(),R.style.CustomMaterialAlertDialog)
+                    MaterialAlertDialogBuilder(requireContext())
                         .apply {
                             setMessage(getString(R.string.strContinueWithoutPic))
                             setTitle(getString(R.string.strNotAddedPic))
                             setIcon(R.drawable.icon_question)
                             setCancelable(false)
-
                             setPositiveButton(getString(R.string.strYes)) { _, _ ->
                                 viewModel.checkInputs(
                                     edFirstNameRegister.text.trim().toString(),
@@ -101,6 +106,13 @@ class RegisterFragment : Fragment() {
                                 dialogInterface.dismiss()
                                 requireContext().createCustomToast(getString(R.string.strPleaseAddPic))
                             }
+                            setBackground(
+                                ResourcesCompat.getDrawable(
+                                    resources,
+                                    R.drawable.background_introduction_buttons,
+                                    null
+                                )
+                            )
                             create().show()
                         }
                 }

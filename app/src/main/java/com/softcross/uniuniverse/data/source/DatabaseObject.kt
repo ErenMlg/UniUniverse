@@ -22,15 +22,6 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 )
 @TypeConverters(Converters::class)
 abstract class DatabaseObject : RoomDatabase() {
-
-    companion object {
-        fun getInstance(@ApplicationContext context: Context) = Room.databaseBuilder(
-            context.applicationContext,
-            DatabaseObject::class.java,
-            "UniUniverse.sqlite"
-        ).createFromAsset("UniUniverse.sqlite").build()
-    }
-
     abstract fun getUserWorksDao(): UserWorksDao
 
 }

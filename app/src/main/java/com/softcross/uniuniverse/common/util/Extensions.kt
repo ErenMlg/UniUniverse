@@ -38,9 +38,17 @@ fun Context.createCustomToast(message: String) {
     val textView = layout.findViewById<TextView>(R.id.tvInfo)
     textView.text = message
     toast.apply {
-        setGravity(Gravity.BOTTOM, 0, 20)
+        setGravity(Gravity.BOTTOM, 0, 32)
         duration = Toast.LENGTH_LONG
         view = layout
         show()
     }
+}
+
+fun View.visible() {
+    this.visibility = View.VISIBLE
+}
+
+fun View.gone() {
+    this.visibility = View.GONE
 }

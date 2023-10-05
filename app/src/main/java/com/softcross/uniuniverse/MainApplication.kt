@@ -1,7 +1,7 @@
-package com.softcross.uniuniverse.di
+package com.softcross.uniuniverse
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class HiltApp : Application()
+class MainApplication : Application()

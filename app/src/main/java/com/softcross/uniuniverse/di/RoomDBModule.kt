@@ -1,6 +1,7 @@
 package com.softcross.uniuniverse.di
 
 import android.content.Context
+import androidx.room.Room
 import com.softcross.uniuniverse.data.source.DatabaseObject
 import dagger.Module
 import dagger.Provides
@@ -11,10 +12,16 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class AppModule {
+object RoomDBModule {
 
     @Provides
     @Singleton
-    fun provideUserWorksDao(@ApplicationContext context: Context) =
-        DatabaseObject.getInstance(context).getUserWorksDao()
+    fun provideRoomDB(@ApplicationContext context: Context) =
+        Room.databaseBuilder(context, DatabaseObject::class.java, "UniUniverse.sqlite").build()
+
+    @Provides
+    @Singleton
+    fun provideUserWorksDao(databaseObject: DatabaseObject) = databaseObject.getUserWorksDao()
+
+
 }

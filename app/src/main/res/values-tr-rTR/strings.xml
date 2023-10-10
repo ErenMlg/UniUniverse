@@ -22,4 +22,9 @@
     <string name="strUserAddFailed">Kullanıcı kaydı başarısız</string>
     <string name="strYes">Evet</string>
     <string name="strNo">Hayır</string>
+    <string name="strHome">Anasayfa</string>
+    <string name="strWelcome">Hoşgeldin, %1s !</string>
+    <string name="strTodoWorks">Yapılacaklar</string>
+    <string name="strSchedule">Bugünün Programı</string>
+    <string name="strPlace">Konum: %1s</string>
 </resources>

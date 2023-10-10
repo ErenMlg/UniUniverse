@@ -26,6 +26,7 @@ import androidx.navigation.Navigation
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.dialog.MaterialDialogs
 import com.softcross.uniuniverse.R
+import com.softcross.uniuniverse.common.delegate.viewBinding
 import com.softcross.uniuniverse.common.util.createCustomToast
 import com.softcross.uniuniverse.common.util.gone
 import com.softcross.uniuniverse.common.util.launchAndCollectIn
@@ -36,21 +37,12 @@ import com.softcross.uniuniverse.presentation.register.RegisterViewModel.Registe
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class RegisterFragment : Fragment() {
+class RegisterFragment : Fragment(R.layout.fragment_register) {
 
+    private val binding by viewBinding(FragmentRegisterBinding::bind)
     private val viewModel: RegisterViewModel by viewModels()
-    private lateinit var binding: FragmentRegisterBinding
     private var pickedPhoto: Uri? = null
     private var pickedBitMap: Bitmap? = null
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
-        binding = FragmentRegisterBinding.inflate(layoutInflater)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

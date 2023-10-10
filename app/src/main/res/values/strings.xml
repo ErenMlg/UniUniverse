@@ -21,4 +21,9 @@
     <string name="strUserAddFailed">Failed add user</string>
     <string name="strYes">Yes</string>
     <string name="strNo">No</string>
+    <string name="strHome">Home</string>
+    <string name="strWelcome">Welcome, %1s!</string>
+    <string name="strTodoWorks">To Do Works</string>
+    <string name="strSchedule">Today\'s Schedule</string>
+    <string name="strPlace">Place: %1s</string>
 </resources>

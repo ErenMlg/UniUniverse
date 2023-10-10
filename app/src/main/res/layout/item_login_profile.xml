@@ -19,9 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/circleImageView"
-        app:srcCompat="@drawable/icon_profile"
-        app:strokeColor="#9B61D8"
-        app:strokeWidth="0dp" />
+        app:srcCompat="@drawable/icon_profile" />
 
     <TextView
         android:id="@+id/tvUserName"

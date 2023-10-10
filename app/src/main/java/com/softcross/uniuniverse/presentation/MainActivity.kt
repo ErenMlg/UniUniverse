@@ -1,7 +1,8 @@
-package com.softcross.uniuniverse
+package com.softcross.uniuniverse.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.softcross.uniuniverse.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
